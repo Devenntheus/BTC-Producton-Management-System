@@ -66,3 +66,34 @@ h1, h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid white; 
+    border-radius: 8px;
+    background-color: white;
+    overflow: hidden; /* Hide any overflow */
+}
+
+.card .info {
+    flex: 1;
+    margin-right: 20px; /* Space between text and iframe */
+    margin-left: 20px;
+}
+
+.performance-percentage {
+    margin-top: 40px;
+    font-size: 35px; /* Set font size */
+    font-weight: bold; /* Optional: make the font bold */
+    color: #000000; /* Optional: set the text color */
+}
+
+.card iframe {
+    width: 100%; /* Adjust width to fit the card */
+    height: 200px; /* Adjust height as needed */
+    border: none;
+}
