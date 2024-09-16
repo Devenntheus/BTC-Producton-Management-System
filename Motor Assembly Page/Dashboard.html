@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Assembly</title>
+    <link rel="stylesheet" href="Dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="../Motor Assembly Page/Dashboard.html">
+                <img src="../Images/tulip.png" alt="Logo">
+            </a>
+            <div class="text">
+                <h1>|</h1>
+                <h2>Motor Assembly</h2>
+            </div>
+        </div>
+        <div class="date-time" id="dateTime"></div>
+    </header>
+    <div class="container">  
+    </div>
+    <script src="Dashboard.js"></script>
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('dateTime');
+            const now = new Date();
+
+            const months = [
+                "Jan", "Feb", "Marc", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+            ];
+
+            const month = months[now.getMonth()];
+            const day = String(now.getDate()).padStart(2, '0');
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            const formattedDateTime = `${month}/${day}/${year} ${hours}:${minutes}`;
+            dateTimeElement.textContent = formattedDateTime;
+        }
+
+        setInterval(updateDateTime, 1000); // Update every minute
+        updateDateTime(); // Initial call
+    </script>
+</body>
+</html>
