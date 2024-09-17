@@ -55,6 +55,16 @@ body {
     background-color: #232D37;
 }
 
+.main-container {
+    display: flex;
+    flex-direction: row-reverse; /* Reversed the order to place right-container first */
+    justify-content: flex-start;
+}
+
+.left-container, .right-container {
+    flex: 1;
+}
+
 .container {
     font-family: 'Poppins', sans-serif;
     background-color: transparent;
@@ -68,6 +78,7 @@ h1, h2 {
 }
 
 .card {
+    width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -85,7 +96,6 @@ h1, h2 {
     margin-left: 20px;
 }
 
-
 .performance-percentage,
 .quality-percentage,
 .availability-percentage {
@@ -99,4 +109,16 @@ h1, h2 {
     width: 100%; /* Adjust width to fit the card */
     height: 240px; /* Adjust height as needed */
     border: none;
+}
+
+.card-history {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid white; 
+    border-radius: 8px;
+    background-color: white;
+    overflow: hidden; /* Hide any overflow */
 }
