@@ -85,7 +85,10 @@ h1, h2 {
     margin-left: 20px;
 }
 
-.performance-percentage {
+
+.performance-percentage,
+.quality-percentage,
+.availability-percentage {
     margin-top: 40px;
     font-size: 35px; /* Set font size */
     font-weight: bold; /* Optional: make the font bold */
@@ -94,6 +97,6 @@ h1, h2 {
 
 .card iframe {
     width: 100%; /* Adjust width to fit the card */
-    height: 200px; /* Adjust height as needed */
+    height: 240px; /* Adjust height as needed */
     border: none;
 }

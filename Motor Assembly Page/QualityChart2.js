@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(ctx);
 
     const data = {
-        labels: ['Assembly', 'Other', 'Equipment', 'Part Qual...', 'No Materi...'],
+        labels: ['Mechani...', 'Broken / ...', 'Burrs / S...', 'Lead D...', 'Rough/Ti...', 'Noisy', 'Missing P...', ''], // Add an empty label for the invisible bar
         datasets: [
             {
                 type: 'line',
                 label: 'Cumulative Percentage',
-                data: [50, 88, 97, 99, 100], // Example cumulative percentages, replace with your actual data
+                data: [25, 50, 65, 75, 85, 95, 100, 100], // Include the extra data point
                 backgroundColor: 'rgba(255, 159, 64, 0.2)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 2,
@@ -21,13 +21,13 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             {
                 type: 'bar',
-                label: 'Duration - Sum',
-                data: [1500, 1300, 200, 100, 50], // Example data, replace with your actual data
+                label: '',
+                data: [13, 12, 7, 6, 4, 4, 3, 0], // Add an invisible bar with value 0
                 backgroundColor: 'rgba(54, 162, 235, 0.6)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1,
                 yAxisID: 'y',
-            }
+            }   
         ]
     };
 
@@ -39,15 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 position: 'left',
                 ticks: {
                     callback: function(value) {
-                        const hours = Math.floor(value / 3600);
-                        const minutes = Math.floor((value % 3600) / 60);
-                        const seconds = value % 60;
-                        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                        if ([2, 6, 10, 14].includes(value)) {
+                            return value;
+                        }
+                        return '';
                     },
-                    stepSize: 500, // Adjust this value to get the desired step interval
                 },
                 min: 0,
-                max: 2000, // Adjust the max value as needed
+                max: 14, // Adjust the max value as needed
                 grid: {
                     color: 'rgba(0, 0, 0, 0.1)',
                 }
