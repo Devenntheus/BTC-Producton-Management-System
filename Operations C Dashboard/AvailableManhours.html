@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Manhours</title>
+    <link rel="stylesheet" href="AvailableManhours.css">
+</head>
+<body>
+    <div class="container">
+        <div id="manhoursChartContainer">
+                <canvas id="manhoursChart"></canvas>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Sub Assy</th>
+                        <th>Pre Assy TOWER</th>
+                        <th>Main Assy</th>
+                        <th>Sub Assy</th>
+                        <th>Pre Assy DISPENSER</th>
+                        <th>Main Assy</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Rows will be inserted by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.js"></script>
+    <script src="AvailableManhours.js"></script>
+</body>
+</html>
+    

@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+}
+
+.chartjs-render-monitor {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.legend {
+    margin-top: 20px;
+}
