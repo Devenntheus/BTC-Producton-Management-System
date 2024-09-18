@@ -16,8 +16,8 @@
 <body>
     <header class="header">
         <div class="logo">
-            <a href="../Motor Assembly Page/Dashboard.html">
-                <img src="../Images/tulip.png" alt="Logo">
+            <a href="">
+                <img src="../Images/btcpower-logo-green.png" alt="Logo">
             </a>
             <div class="text">
                 <h1>|</h1>
@@ -38,36 +38,54 @@
         <!-- Center: MO's and Order Stats -->
         <div class="center-container">
             <div class="card">
-                <iframe src="" title="Build Status"></iframe>
+                <h1 class="total-heading">
+                    TOTAL
+                    <p class="mos-heading">MO's</p>
+                </h1>
+                <h3 class="total-h3"> 10 </h3>
+                <iframe src="" title="TOTAL MO's"></iframe>
             </div>
         </div> 
 
         <div class="center-container">
             <div class="card">
-                <iframe src="" title="Build Status"></iframe>
+                <h1 class="closed-heading ">
+                    CLOSED
+                    <p class="mos-heading">MO's</p>
+                </h1>
+                <h3 class="closed-h3"> 5 </h3>
+                <iframe src="" title="CLOSED MO's"></iframe>
             </div>
         </div> 
 
         <div class="center-container">
             <div class="card">
-                <iframe src="" title="Build Status"></iframe>
+                <h2> ORDERS DUE TODAY </h2>
+                <h4> 56 </h4>
+                <iframe src="" title="ORDERS DUE TODAY"></iframe>
             </div>
         </div> 
 
         <div class="center-container">
             <div class="card">
-                <iframe src="" title="Build Status"></iframe>
+                <h2> BACKLOG DUE TODAY </h2>
+                <h4> 839 </h4>
+                <iframe src="" title="BACKLOG DUE TODAY"></iframe>
             </div>
         </div> 
         <div class="center-container">
             <div class="card">
-                <iframe src="" title="Build Status"></iframe>
+                <h2> COMPLETED TODAY </h2>
+                <h4> 198 </h4>
+                <iframe src="" title="COMPLETED TODAY"></iframe>
             </div>
         </div> 
 
         <div class="center-container">
             <div class="card">
-                <iframe src="" title="Build Status"></iframe>
+                <h2> TOTAL DOWNTIME </h2>
+                <h4> 15:53:50 </h4>
+                <iframe src="" title="TOTAL DOWNTIME"></iframe>
             </div>
         </div> 
 
@@ -102,14 +120,14 @@
             const dateTimeElement = document.getElementById('dateTime');
             const now = new Date();
 
-            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "Dececember"];
             const month = months[now.getMonth()];
             const day = String(now.getDate()).padStart(2, '0');
             const year = now.getFullYear();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
 
-            const formattedDateTime = `${month}/${day}/${year} ${hours}:${minutes}`;
+            const formattedDateTime = `${month} ${day}, ${year} -  ${hours}:${minutes}`;
             dateTimeElement.textContent = formattedDateTime;
         }
 

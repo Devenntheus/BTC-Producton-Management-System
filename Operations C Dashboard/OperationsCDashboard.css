@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 header {
@@ -105,20 +106,58 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     width: 11.5%; /* Adjust width as needed */
     height: 20%; /* Adjust height */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text within the container */
 }
 
 .center-container iframe {
     width: 100%;
     height: 100%; /* Adjust height as needed */
     border: none;
+    display: none; /* Hide the iframes unless you need them */
 }
 
-.center-container .info {
-    width: calc(33.33% - 10px);
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 10px;
+.total-heading {
+    font-size: 25px;
+    color: #3C7D22;
+    margin: 0; /* Remove default margin */
 }
+
+.closed-heading {
+    font-size: 25px;
+    color: #E97132;
+    margin: 0; /* Remove default margin */
+}
+
+.mos-heading {
+    font-size: 25px;
+    color: black;
+    display: inline; /* Ensure <p> behaves like inline text */
+    margin: 0; /* Remove default margin */
+}
+
+.closed-h3{
+    font-size: 40px;
+    color: #E97132;
+}
+
+.total-h3{
+    font-size: 40px;
+    color: #3C7D22;
+}
+
+
+.center-container h2{
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.center-container h4{
+    font-size: 40px;
+    color: #000000;
+}
+
 
 /* Center Build Status */
 .center-build-status {
@@ -132,7 +171,7 @@ body {
     box-shadow: 0px 4px 8px rgba(179, 116, 116, 0.1);
     width: 36.5%;
     height: 78.5%; /* Adjust height */
-    margin-left: 465px; /* Add space to the right */
+    margin-left: 478px; /* Add space to the right */
     margin-top: -640px;
     position: relative; /* Establishes a positioning context for the iframe */
 }
@@ -166,7 +205,7 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     width: 36.5%;
     height: 38%; /* Adjust height */
-    margin-left: 1130px; /* Add space to the right */
+    margin-left: 1140px; /* Add space to the right */
     margin-top: -640px;
     position: relative; /* Establishes a positioning context for the iframe */
 }
@@ -201,7 +240,7 @@ body {
     width: 36.5%;
     height: 38%; /* Adjust height */
     display: flex;
-    margin-left: 1130px; /* Add space to the right */
+    margin-left: 1140px; /* Add space to the right */
     margin-top: -315px;
     position: relative; /* Establishes a positioning context for the iframe */
 }
