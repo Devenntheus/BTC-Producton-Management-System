@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations C Dashboard</title>
+    <link rel="stylesheet" href="OperationsCDashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <!-- Chart.js Library -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Chart.js Plugin Annotation (if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="../Motor Assembly Page/Dashboard.html">
+                <img src="../Images/tulip.png" alt="Logo">
+            </a>
+            <div class="text">
+                <h1>|</h1>
+                <h2>Operations C Dashboard</h2>
+            </div>
+        </div>
+        <div class="date-time" id="dateTime"></div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Left Container: Assemblies Overview -->
+        <div class="left-container">
+            <div class="card">
+                <iframe src="AssembliesOverview.html" title="Assemblies Overview"></iframe>
+            </div>
+        </div>
+
+        <!-- Center: MO's and Order Stats -->
+        <div class="center-container">
+            <div class="card">
+                <iframe src="" title="Build Status"></iframe>
+            </div>
+        </div> 
+
+        <div class="center-container">
+            <div class="card">
+                <iframe src="" title="Build Status"></iframe>
+            </div>
+        </div> 
+
+        <div class="center-container">
+            <div class="card">
+                <iframe src="" title="Build Status"></iframe>
+            </div>
+        </div> 
+
+        <div class="center-container">
+            <div class="card">
+                <iframe src="" title="Build Status"></iframe>
+            </div>
+        </div> 
+        <div class="center-container">
+            <div class="card">
+                <iframe src="" title="Build Status"></iframe>
+            </div>
+        </div> 
+
+        <div class="center-container">
+            <div class="card">
+                <iframe src="" title="Build Status"></iframe>
+            </div>
+        </div> 
+
+        <!-- Center Build Status -->
+        <div class="center-build-status">
+            <div class="card">
+                <h2>BUILD STATUS</h2>
+                <iframe src="BuildStatusChart.html" title="Build Status"></iframe>
+            </div>
+        </div>
+
+        <!-- Right Container: Attendance Rate -->
+        <div class="right-container">
+            <div class="card">
+                <h2>ATTENDANCE</h2>
+                <iframe src="AttendanceRate.html" title="Attendance Rate"></iframe>
+            </div>
+        </div>
+
+        <!-- Right Bottom: Available Manhours -->
+        <div class="right-bottom-container">
+            <div class="card">
+                <h2>AVAILABLE MANHOURS</h2>
+                <iframe src="AvailableManhours.html" title="Available Manhours"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="OperationsCDashboard.js"></script>
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('dateTime');
+            const now = new Date();
+
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const month = months[now.getMonth()];
+            const day = String(now.getDate()).padStart(2, '0');
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            const formattedDateTime = `${month}/${day}/${year} ${hours}:${minutes}`;
+            dateTimeElement.textContent = formattedDateTime;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+</body>
+</html>

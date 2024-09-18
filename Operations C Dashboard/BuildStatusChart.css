@@ -25,7 +25,7 @@ h1 {
 
 canvas {
     width: 100%;
-    height: auto;
+    height: 80%;
 }
 
 .chartjs-render-monitor {
@@ -35,5 +35,5 @@ canvas {
 }
 
 .legend {
-    margin-top: 20px;
+    margin-top: 1px;
 }

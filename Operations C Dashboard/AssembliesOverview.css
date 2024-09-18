@@ -24,11 +24,13 @@ body {
 }
 
 .dashboard-container {
-    width: 500px;
+    width:100%; /* Full width of its parent */
+    height: 100%; /* Adjust height based on available space */
     background-color: #fff;
-    padding: 20px;
     border-radius: 10px;
+    padding: 10px; /* Reduced padding to fit better */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* Add scrollbars if content overflows */
 }
 
 .header {
@@ -38,7 +40,7 @@ body {
     background-color: white;
     padding: 10px;
     border-radius: 3px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     border: 1.5px solid #818181;
 }
 
@@ -61,7 +63,7 @@ body {
 }
 
 .header h3 {
-    font-size: 12px;
+    font-size: 10px;
     color: #666;
     margin: 10px 0 0; /* Add top margin to separate from h1 */
 }
@@ -99,7 +101,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #C5C5C5;
     width: 100%;  /* Set width to 100% to span the container */
     height: 100px; /* Set a fixed height for each row */

@@ -7,15 +7,13 @@ const ctx = document.getElementById('barChart').getContext('2d');
                     label: 'Actual',
                     backgroundColor: 'rgba(233, 113, 50, 1)', // Use a different color for bars
                     borderColor: 'rgba(255, 99, 132, 0.8)',
-                    borderWidth: 1,
-                    barThickness: 25, // Adjust this value to change the width of the bars
+                    barThickness: 8, // Adjust this value to change the width of the bars
                     data: [60, 55, 50, 45, 40, 65]
                 }, {
                     label: 'Target',
                     backgroundColor: 'rgba(21, 96, 130, 1)', // Use a color for bars
                     borderColor: 'rgba(75, 192, 192, 0.8)',
-                    borderWidth: 1,
-                    barThickness: 25, // Adjust this value to change the width of the bars
+                    barThickness: 8, // Adjust this value to change the width of the bars
                     data: [70, 60, 55, 50, 45, 70]
                 }]
             },
@@ -29,7 +27,7 @@ const ctx = document.getElementById('barChart').getContext('2d');
                             boxWidth: 15, // Width of the legend color box
                             padding: 20, // Padding between the legend box and text
                             font: {
-                                size: 14, // Font size of the legend text
+                                size: 8, // Font size of the legend text
                             },
                             color: '#333' // Color of the legend text
                         }
@@ -38,7 +36,7 @@ const ctx = document.getElementById('barChart').getContext('2d');
                         display: true,
                         text: 'Weekly Plan vs. Actual',
                         font: {
-                            size: 24,
+                            size: 12,
                             fontColor: '#333'
                         }
                     }
@@ -47,7 +45,6 @@ const ctx = document.getElementById('barChart').getContext('2d');
                     x: {
                         beginAtZero: true,
                         max: 70, 
-                        
                         grid: {
                             drawBorder: false, // Optionally remove the vertical grid lines
                         }
@@ -57,12 +54,15 @@ const ctx = document.getElementById('barChart').getContext('2d');
                         beginAtZero: true,
                         ticks: {
                             font: {
-                                size: 20
+                                size: 8,
                             }
                         },
                         grid: {
                             display: false // Remove horizontal grid lines
-                        }
+                        },
+                        // Adjust spacing between bars
+                        barPercentage: 0, // Adjust this value to change the width of the bars relative to the available space
+                        categoryPercentage: 0 // Adjust this value to control the spacing between categories
                     }
                 }
             }

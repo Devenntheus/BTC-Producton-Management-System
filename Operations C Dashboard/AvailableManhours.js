@@ -1,12 +1,12 @@
 // Initialize chart data
 const chartData = {
     labels: [
-        'Sub Assy TOWER',
+        'Sub Assy',
         'Pre Assy TOWER',
-        'Main Assy TOWER',
-        'Sub Assy DISPENSER',
+        'Main Assy',
+        'Sub Assy',
         'Pre Assy DISPENSER',
-        'Main Assy DISPENSER',
+        'Main Assy',
         'TOTAL'
     ],
     datasets: [
@@ -34,8 +34,18 @@ const manhoursChart = new Chart(ctx, {
     data: chartData,
     options: {
         responsive: true,
-        maintainAspectRatio: false, // Allows the chart to adjust to the container's dimensions
         scales: {
+            x: {
+                stacked: false, 
+                display:false,// Ensure bars are clustered, not stacked
+                ticks: {
+                    font: {
+                        size: 3// Font size for the x-axis ticks
+                    },
+                    maxRotation: 0, // Ensure labels are horizontal
+                    minRotation: 0 // Ensure labels are horizontal
+                }
+            },
             y: {
                 beginAtZero: true,
                 title: {
@@ -49,6 +59,8 @@ const manhoursChart = new Chart(ctx, {
                     callback: function(value) {
                         // Format the y-axis values to 2 decimal points
                         return value.toFixed(2);
+                    },font: {
+                        size: 12 // Font size for the x-axis ticks
                     }
                 }
                 
@@ -62,7 +74,7 @@ const manhoursChart = new Chart(ctx, {
                 display: true,
                 text: 'Today\'s Manhours', // Chart title
                 font: {
-                    size: 24,
+                    size: 12,
                     fontColor: '#333'
                 }
             }
@@ -72,8 +84,6 @@ const manhoursChart = new Chart(ctx, {
 
 // Populate the table with data
 const tableBody = document.getElementById('tableBody');
-const totalHCI = document.getElementById('totalHCI');
-const totalPresent = document.getElementById('totalPresent');
 
 let totalHCIValue = 0;
 let totalPresentValue = 0;
@@ -116,7 +126,3 @@ chartData.labels.forEach((label, index) => {
 // Append the rows to the table body
 tableBody.appendChild(rowHCI);
 tableBody.appendChild(rowPresent);
-
-// Set totals in the table footer
-totalHCI.textContent = `${totalHCIValue}`;
-totalPresent.textContent = `${totalPresentValue}`;
