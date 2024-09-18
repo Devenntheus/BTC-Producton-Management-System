@@ -136,7 +136,7 @@ h1, h2 {
 
 .card-history iframe {
     width: 100%; /* Make the iframe take full width of the card */
-    height: 830px; /* Make the iframe take full height of the card */
+    height: 835px; /* Make the iframe take full height of the card */
     border: none; /* Remove default iframe border */
 }
 
@@ -176,7 +176,7 @@ h1, h2 {
 }
 
 .operations-today .main-box .box-title {
-    font-size: 40px;
+    font-size: 45px;
 }
 
 .operations-today .box:last-child {
@@ -188,7 +188,11 @@ h1, h2 {
     font-weight: bold;
 }
 
+.today-text {
+    color: #d3d3d3;
+}
+
 .operations-today .box-data {
-    font-size: 24px;
-    margin-top: 5px;
+    font-size: 30px;
+    font-weight: bold;
 }
