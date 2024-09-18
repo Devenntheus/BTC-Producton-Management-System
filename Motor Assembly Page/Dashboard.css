@@ -1,3 +1,4 @@
+/* Existing styles */
 * {
     margin: 0;
     padding: 0;
@@ -85,7 +86,7 @@ h1, h2 {
     padding: 10px;
     text-align: center;
     border: 1px solid white; 
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: white;
     overflow: hidden; /* Hide any overflow */
 }
@@ -107,18 +108,87 @@ h1, h2 {
 
 .card iframe {
     width: 100%; /* Adjust width to fit the card */
-    height: 240px; /* Adjust height as needed */
+    height: 200px; /* Adjust height as needed */
     border: none;
+}
+
+.container-history {
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    position: relative;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .card-history {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px;
+    justify-content: center; /* Center the iframe */
+    align-items: center; /* Center the iframe */
     text-align: center;
     border: 1px solid white; 
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: white;
     overflow: hidden; /* Hide any overflow */
+    height: 100%; /* Make sure it takes full height of the container */
+    width: 100%; /* Make sure it takes full width of the container */
+}
+
+.card-history iframe {
+    width: 100%; /* Make the iframe take full width of the card */
+    height: 830px; /* Make the iframe take full height of the card */
+    border: none; /* Remove default iframe border */
+}
+
+/* New styles for operations-today card */
+.operations-today {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+}
+
+.operations-today .box {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+
+.operations-today .main-box {
+    background-color: green;
+    color: white;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    display: flex;
+    border-radius: 5px;
+    padding-left: 20px; /* Add padding to move text away from the left edge */
+    position: relative;
+}
+
+.operations-today .main-box .box-title {
+    font-size: 40px;
+}
+
+.operations-today .box:last-child {
+    border-right: none;
+}
+
+.operations-today .box-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.operations-today .box-data {
+    font-size: 24px;
+    margin-top: 5px;
 }
