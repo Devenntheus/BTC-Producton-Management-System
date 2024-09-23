@@ -28,6 +28,7 @@
                 </div>
             </div>
         </div>
+
         <div class="left-container">
             <div class="card operations-today">
                 <div class="box main-box">
@@ -47,7 +48,7 @@
                 </div>                
             </div>
 
-            <div class="container">
+            <div class="container" onclick="showModal('performanceModal')">
                 <div class="card">
                     <div class="info">
                         <h2>Performance</h2>
@@ -56,7 +57,7 @@
                     <iframe src="PerformanceChart.html" title="Performance Details"></iframe>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" onclick="showModal('availabilityModal')">
                 <div class="card">
                     <div class="info">
                         <h2>Availability</h2>
@@ -66,7 +67,7 @@
                     <iframe src="AvailabilityChart2.html" title="Availability 2 Details"></iframe>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" onclick="showModal('qualityModal')">
                 <div class="card">
                     <div class="info">
                         <h2>Quality</h2>
@@ -78,7 +79,31 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Structure -->
+    <div id="performanceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('performanceModal')">&times;</span>
+            <iframe src="PerformanceChart.html" title="Performance Details"></iframe>
+        </div>
+    </div>
+    <div id="availabilityModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('availabilityModal')">&times;</span>
+            <iframe src="AvailabilityChart1.html" title="Availability 1 Details"></iframe>
+            <iframe src="AvailabilityChart2.html" title="Availability 2 Details"></iframe>
+        </div>
+    </div>
+    <div id="qualityModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('qualityModal')">&times;</span>
+            <iframe src="QualityChart1.html" title="Quality 1 Details"></iframe>
+            <iframe src="QualityChart2.html" title="Quality 2 Details"></iframe>
+        </div>
+    </div>
+
     <script src="Dashboard.js"></script>
+
     <script>
         function updateDateTime() {
             const dateTimeElement = document.getElementById('dateTime');
@@ -101,6 +126,28 @@
 
         setInterval(updateDateTime, 1000);
         updateDateTime();
+
+        // Function to show modal
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        }
+
+        // Function to close modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = 'none';
+                }
+            }
+        }
     </script>
 </body>
 </html>
