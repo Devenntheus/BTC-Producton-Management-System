@@ -5,134 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operations C Dashboard</title>
     <link rel="stylesheet" href="OperationsCDashboard.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <!-- Chart.js Library -->
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Chart.js Plugin Annotation (if needed) -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
-    
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <a href="">
+            <a href="../Motor Assembly Page/Dashboard.html">
                 <img src="../Images/btcpower-logo-green.png" alt="Logo">
             </a>
             <div class="text">
                 <h1>|</h1>
-                <h2>Operations C Dashboard</h2>
+                <h2>Motor Assembly</h2>
             </div>
         </div>
         <div class="date-time" id="dateTime"></div>
     </header>
-
+    
     <div class="dashboard-container">
-        <!-- Left Container: Assemblies Overview -->
+        <!-- Left Container for Assemblies Overview -->
         <div class="left-container">
+            <iframe src="AssembliesOverview.html" title="Assemblies Overview"></iframe>
+        </div>
+
+        <!-- Cards Section (center-top) -->
+        <div class="cards-container">
             <div class="card">
-                <iframe src="AssembliesOverview.html" title="Assemblies Overview"></iframe>
+                <h3>Total MOs</h3>
+                <p>150</p>
+            </div>
+            <div class="card">
+                <h3>Closed MOs</h3>
+                <p>100</p>
+            </div>
+            <div class="card">
+                <h3>Orders Due Today</h3>
+                <p>25</p>
+            </div>
+            <div class="card">
+                <h3>Backlog Due Today</h3>
+                <p>10</p>
+            </div>
+            <div class="card">
+                <h3>Completed Today</h3>
+                <p>85</p>
+            </div>
+            <div class="card">
+                <h3>Total Downtime</h3>
+                <p>3 hours</p>
             </div>
         </div>
 
-        <!-- Center: MO's and Order Stats -->
-        <div class="center-container">
-            <div class="card">
-                <h1 class="total-heading">
-                    TOTAL
-                    <p class="mos-heading">MO's</p>
-                </h1>
-                <h3 class="total-h3"> 10 </h3>
-                <iframe src="" title="TOTAL MO's"></iframe>
-            </div>
-        </div> 
-
-        <div class="center-container">
-            <div class="card">
-                <h1 class="closed-heading ">
-                    CLOSED
-                    <p class="mos-heading">MO's</p>
-                </h1>
-                <h3 class="closed-h3"> 5 </h3>
-                <iframe src="" title="CLOSED MO's"></iframe>
-            </div>
-        </div> 
-
-        <div class="center-container">
-            <div class="card">
-                <h2> ORDERS DUE TODAY </h2>
-                <h4> 56 </h4>
-                <iframe src="" title="ORDERS DUE TODAY"></iframe>
-            </div>
-        </div> 
-
-        <div class="center-container">
-            <div class="card">
-                <h2> BACKLOG DUE TODAY </h2>
-                <h4> 839 </h4>
-                <iframe src="" title="BACKLOG DUE TODAY"></iframe>
-            </div>
-        </div> 
-        <div class="center-container">
-            <div class="card">
-                <h2> COMPLETED TODAY </h2>
-                <h4> 198 </h4>
-                <iframe src="" title="COMPLETED TODAY"></iframe>
-            </div>
-        </div> 
-
-        <div class="center-container">
-            <div class="card">
-                <h2> TOTAL DOWNTIME </h2>
-                <h4> 15:53:50 </h4>
-                <iframe src="" title="TOTAL DOWNTIME"></iframe>
-            </div>
-        </div> 
-
-        <!-- Center Build Status -->
+        <!-- Build Status Section (center) -->
         <div class="center-build-status">
-            <div class="card">
-                <h2>BUILD STATUS</h2>
-                <iframe src="BuildStatusChart.html" title="Build Status"></iframe>
-            </div>
+            <iframe src="BuildStatusChart.html" title="Build Status"></iframe>
         </div>
 
-        <!-- Right Container: Attendance Rate -->
-        <div class="right-container">
-            <div class="card">
-                <h2>ATTENDANCE</h2>
-                <iframe src="AttendanceRate.html" title="Attendance Rate"></iframe>
-            </div>
+        <!-- Attendance Rate Section (right-center) -->
+        <div class="right-attendance">
+            <iframe src="AttendanceRate.html" title="Attendance Rate"></iframe>
         </div>
 
-        <!-- Right Bottom: Available Manhours -->
-        <div class="right-bottom-container">
-            <div class="card">
-                <h2>AVAILABLE MANHOURS</h2>
-                <iframe src="AvailableManhours.html" title="Available Manhours"></iframe>
-            </div>
+        <!-- Available Manhours Section (bottom-right) -->
+        <div class="right-bottom-manhours">
+            <iframe src="AvailableManhours.html" title="Available Manhours"></iframe>
         </div>
     </div>
-
-    <script src="OperationsCDashboard.js"></script>
-    <script>
-        function updateDateTime() {
-            const dateTimeElement = document.getElementById('dateTime');
-            const now = new Date();
-
-            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "Dececember"];
-            const month = months[now.getMonth()];
-            const day = String(now.getDate()).padStart(2, '0');
-            const year = now.getFullYear();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-
-            const formattedDateTime = `${month} ${day}, ${year} -  ${hours}:${minutes}`;
-            dateTimeElement.textContent = formattedDateTime;
-        }
-
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
-    </script>
 </body>
 </html>

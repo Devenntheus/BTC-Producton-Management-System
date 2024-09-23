@@ -6,34 +6,40 @@ body {
 .container {
     display: flex; /* Use flexbox for centering */
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: flex-end; /* Align items to the end (right) */
     width: 100%;
     height: 90vh; /* Adjust container height to fit the viewport */
     position: relative; /* Enable positioning of child elements */
-    margin-top: -13px;
 }
 
 #chart-container {
-    width: 90%;
-    max-width: 100%;
-    height: 400px; /* Adjust height as needed */
-    max-height: 100%;
-    position: relative;
+    width: 80%; /* Set desired width for the chart */
+    height: auto; /* Set height to auto to fit content */
+    position: relative; /* Keep relative for positioning of table */
     background-color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    z-index: 1; /* Ensure the chart is behind the table */
-    margin-left: 60px;
+    align-items: flex-end; /* Align chart to the right */
+    z-index: 1;
+    margin: 0 10px 0 0; /* Add right margin */
+}
+
+.table-container {
+    display: flex;
+    justify-content: center; /* Center the table horizontally */
+    width: 100%;    /* Set the table to be wider than the chart */
+    max-width: 2700vh;
+    padding: 0;
+    position: relative; /* Keep relative positioning */
+    margin-top: -4px; /* Negative margin to bring table closer */
+    margin-right: 45px; /* Reduce left margin to move table to the left */
+    z-index: 2;
 }
 
 .data-table {
-    width: 88%;
+    width: 100%; /* Make the data table full width of the table container */
     border-collapse: collapse;
-    table-layout: fixed; /* Ensure all columns are of equal width */
-    position: absolute; /* Overlay the table on top of the chart */
-    top: -62px; /* Adjust top position to fit above the chart */
-    z-index: 2; /* Ensure the table is in front of the chart */
+    table-layout: fixed;
 }
 
 .data-table th, .data-table td {
@@ -51,33 +57,7 @@ body {
     font-size: 8px; /* Same font size for headers */
 }
 
-.table-container {
-    display: flex;
-    justify-content: center; /* Center the table horizontally */
-    width: 100%; /* Full width of the container */
-    max-width: 100%;
-    padding: 0 10px;
-    margin-top: 56px; /* Margin between chart and table */
-    position: relative; /* Ensure the table is positioned relative to the container */
-    margin-left: -40px;
-}
-
-/* Column widths */
-.data-table th, .data-table td {
-    width: 1%; /* Set a fixed width for all columns */
-}
-
-.data-table th.hide {
-    background-color: #fff; /* Set the background color */
-    border-top: 1px solid #fff; /* Set the top border color to match the background color */
-    border-left: 1px solid #fff; /* Set the left border color to match the background color */
-    border-right: 1px solid #ddd; /* Keep the right border color as is */
-    border-bottom: 1px solid #ddd; /* Keep the bottom border color as is */
-    padding: 4px; /* Keep the padding consistent */
-    font-size: 8px; /* Keep the font size consistent */
-    text-align: center; /* Keep text alignment consistent */
-}
-
+/* Additional styles for legend boxes */
 .legend-box {
     width: 10px; /* Size for legend box */
     height: 10px; /* Size for legend box */
@@ -93,14 +73,3 @@ body {
 .legend-present {
     background-color: rgba(233, 113, 50, 1);
 }
-
-.data-table th.legend-left {
-    text-align: left; /* Align text to the left */
-    padding: 4px; /* Reduced padding for smaller cells */
-    border: 1px solid #ddd;
-    font-weight: bold;
-    font-size: 8px;
-    vertical-align: middle; /* Align legend box and text vertically */
-}
-
-
