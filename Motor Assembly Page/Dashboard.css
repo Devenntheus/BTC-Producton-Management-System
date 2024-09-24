@@ -77,7 +77,9 @@ h1, h2 {
     font-weight: 500;
 }
 
+/* Card styles */
 .card {
+    position: relative; /* Added for positioning the icon */
     width: 1200px;
     display: flex;
     justify-content: space-between;
@@ -88,6 +90,16 @@ h1, h2 {
     border-radius: 5px;
     background-color: white;
     overflow: hidden; /* Hide any overflow */
+}
+
+.card-history .maximize-icon,
+.card .maximize-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
 }
 
 .card .info {
@@ -268,4 +280,36 @@ h1, h2 {
     z-index: 1; /* Ensure it sits above the iframe */
     background: transparent; /* Make it invisible */
     cursor: pointer; /* Optional: change the cursor to indicate it's clickable */
+}
+
+/* Tooltip styling */
+.maximize-icon {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.maximize-icon::after {
+    content: attr(title);
+    position: absolute;
+    top: -5px;
+    left: 105%;
+    background-color: black;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+}
+
+.maximize-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Resetting the default tooltip */
+.maximize-icon[title]:hover::after {
+    display: none;
 }
