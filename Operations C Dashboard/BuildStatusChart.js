@@ -7,13 +7,13 @@ const ctx = document.getElementById('barChart').getContext('2d');
                     label: 'Actual',
                     backgroundColor: 'rgba(233, 113, 50, 1)', // Use a different color for bars
                     borderColor: 'rgba(255, 99, 132, 0.8)',
-                    barThickness: 8, // Adjust this value to change the width of the bars
+                    barThickness: 30, // Adjust this value to change the width of the bars
                     data: [60, 55, 50, 45, 40, 65]
                 }, {
                     label: 'Target',
                     backgroundColor: 'rgba(21, 96, 130, 1)', // Use a color for bars
                     borderColor: 'rgba(75, 192, 192, 0.8)',
-                    barThickness: 8, // Adjust this value to change the width of the bars
+                    barThickness: 30, // Adjust this value to change the width of the bars
                     data: [70, 60, 55, 50, 45, 70]
                 }]
             },
@@ -27,7 +27,7 @@ const ctx = document.getElementById('barChart').getContext('2d');
                             boxWidth: 15, // Width of the legend color box
                             padding: 20, // Padding between the legend box and text
                             font: {
-                                size: 8, // Font size of the legend text
+                                size: 12, // Font size of the legend text
                             },
                             color: '#333' // Color of the legend text
                         }
@@ -54,7 +54,7 @@ const ctx = document.getElementById('barChart').getContext('2d');
                         beginAtZero: true,
                         ticks: {
                             font: {
-                                size: 8,
+                                size: 12,
                             }
                         },
                         grid: {

@@ -3,6 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
 }
 
 header {
@@ -46,13 +48,26 @@ header {
 }
 
 .header .date-time {
-    font-size: 20px;
+    margin-top: -5px;
+    font-size: 10px;  /* Default font size for the date */
     font-weight: 500;
+    text-align: right; /* Justify text to the left */
+}
+
+.header .time {
+    font-size: 20px;  /* Increase font size for the time */
+    font-weight: bold; /* Make time bold */
+    color: #6DBF4C;
+}
+
+.header .date {
+    font-size: 12px;  /* Keep the date smaller */
+    font-weight: normal; /* Normal weight for the date */
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background-color: #232D37;
     color: #333;
 }
 
@@ -92,21 +107,32 @@ iframe {
 }
 
 .card {
-    background-color: rgba(21, 96, 130, 1);
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    color: white;
+    color: black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card h3 {
-    font-size: 1.2rem;
+.card h3, .card p1 {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .card p {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: bold;
+}
+
+.section-title {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: -10px; /* Space between the title and iframe */
+    margin-bottom: 5px;
+    color: #141B2D;
 }
 
 /* Build Status section (center) */
@@ -117,6 +143,14 @@ iframe {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    padding: 20px; /* Add padding for spacing around content */
+}
+
+.center-build-status iframe {
+    width: 100%;
+    height: 98%;
+    border: 1px solid grey; /* Grey borderline around iframe */
+    border-radius: 5px; /* Optional: smooth out the iframe borders */
 }
 
 /* Attendance Rate section (right-center) */
@@ -127,6 +161,14 @@ iframe {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    padding: 20px; /* Add padding for spacing around content */
+}
+
+.right-attendance iframe {
+    width: 100%;
+    height: 97%;
+    border: 1px solid grey; /* Grey borderline around iframe */
+    border-radius: 5px; /* Optional: smooth out the iframe borders */
 }
 
 /* Available Manhours section (bottom-right) */
@@ -137,7 +179,16 @@ iframe {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    padding: 20px; /* Add padding for spacing around content */
 }
+
+.right-bottom-manhours iframe {
+    width: 100%;
+    height: 97%;
+    border: 1px solid grey; /* Grey borderline around iframe */
+    border-radius: 5px; /* Optional: smooth out the iframe borders */
+}
+
 
 /* Responsive layout for smaller screens */
 @media screen and (max-width: 1200px) {

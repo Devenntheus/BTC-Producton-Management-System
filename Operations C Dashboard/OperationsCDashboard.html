@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operations C Dashboard</title>
     <link rel="stylesheet" href="OperationsCDashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <a href="../Motor Assembly Page/Dashboard.html">
+            <a href="">
                 <img src="../Images/btcpower-logo-green.png" alt="Logo">
             </a>
             <div class="text">
@@ -29,45 +30,85 @@
         <!-- Cards Section (center-top) -->
         <div class="cards-container">
             <div class="card">
-                <h3>Total MOs</h3>
-                <p>150</p>
-            </div>
-            <div class="card">
-                <h3>Closed MOs</h3>
-                <p>100</p>
-            </div>
-            <div class="card">
-                <h3>Orders Due Today</h3>
-                <p>25</p>
-            </div>
-            <div class="card">
-                <h3>Backlog Due Today</h3>
+                <h3><span style="color: #67BC00;">TOTAL</span> <p1>MOs</p1></h3>
                 <p>10</p>
             </div>
             <div class="card">
-                <h3>Completed Today</h3>
-                <p>85</p>
+                <h3><span style="color: #e97132;">CLOSED</span> <p1>MOs</p1></h3>
+                <p>5</p>
             </div>
             <div class="card">
-                <h3>Total Downtime</h3>
-                <p>3 hours</p>
+                <h3>ORDERS DUE TODAY</h3>
+                <p>56</p>
+            </div>
+            <div class="card">
+                <h3>BACKLOG DUE TODAY</h3>
+                <p>839</p>
+            </div>
+            <div class="card">
+                <h3>COMPLETED TODAY</h3>
+                <p>198</p>
+            </div>
+            <div class="card">
+                <h3>TOTAL DOWNTIME</h3>
+                <p>15:53:50</p>
             </div>
         </div>
 
         <!-- Build Status Section (center) -->
         <div class="center-build-status">
+            <h2 class="section-title">BUILD STATUS</h2>
             <iframe src="BuildStatusChart.html" title="Build Status"></iframe>
         </div>
 
         <!-- Attendance Rate Section (right-center) -->
         <div class="right-attendance">
+            <h2 class="section-title">ATTENDANCE</h2>
             <iframe src="AttendanceRate.html" title="Attendance Rate"></iframe>
         </div>
 
         <!-- Available Manhours Section (bottom-right) -->
         <div class="right-bottom-manhours">
+            <h2 class="section-title">AVAILABLE MANHOURS</h2>
             <iframe src="AvailableManhours.html" title="Available Manhours"></iframe>
         </div>
     </div>
+
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('dateTime');
+            const now = new Date();
+        
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+        
+            const dayOfWeek = days[now.getDay()];
+            const month = months[now.getMonth()];
+            const day = String(now.getDate()).padStart(2, '0');
+            const year = now.getFullYear();
+            
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;  // Convert to 12-hour format, with 12 for midnight/noon
+            
+            // Format the time and date as requested
+            const formattedTime = `<span class="time">${hours}:${minutes} ${ampm}</span>`;
+            const formattedDate = `<span class="date">${dayOfWeek}, ${month} ${day} ${year}</span>`;
+            
+            // Combine both time and date
+            dateTimeElement.innerHTML = `${formattedTime}<br>${formattedDate}`;
+        }
+    
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+    
+    
+    
+    
 </body>
 </html>
