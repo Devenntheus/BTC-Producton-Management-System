@@ -46,8 +46,21 @@ header {
 }
 
 .header .date-time {
-    font-size: 20px;
+    margin-top: -5px;
+    font-size: 10px;  /* Default font size for the date */
     font-weight: 500;
+    text-align: right; /* Justify text to the left */
+}
+
+.header .time {
+    font-size: 20px;  /* Increase font size for the time */
+    font-weight: bold; /* Make time bold */
+    color: #6DBF4C;
+}
+
+.header .date {
+    font-size: 12px;  /* Keep the date smaller */
+    font-weight: normal; /* Normal weight for the date */
 }
 
 body {
