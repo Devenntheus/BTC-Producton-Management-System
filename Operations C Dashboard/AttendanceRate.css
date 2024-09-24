@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     align-items: flex-end; /* Align chart to the right */
     z-index: 1;
-    margin: 0 10px 0 0; /* Add right margin */
+    margin-right: 30px;
 }
 
 .table-container {
@@ -59,11 +59,21 @@ body {
 
 /* Additional styles for legend boxes */
 .legend-box {
+    text-align: center;
     width: 10px; /* Size for legend box */
     height: 10px; /* Size for legend box */
     display: inline-block;
     vertical-align: middle; /* Align legend box vertically with text */
     font-size: 8px; /* Font size for legend text */
+}
+
+.data-table th.legend-left {
+    text-align: left; /* Align text to the left */
+    padding: 4px; /* Reduced padding for smaller cells */
+    border: 1px solid #ddd;
+    font-weight: bold;
+    font-size: 8px;
+    vertical-align: middle; /* Align legend box and text vertically */
 }
 
 .legend-hci {

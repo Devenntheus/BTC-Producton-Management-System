@@ -8,30 +8,31 @@
 </head>
 <body>
     <div class="container">
-        <div id="manhoursChartContainer">
-                <canvas id="manhoursChart" width="600" height="190"></canvas>
+        <div id="chart-container">
+                <canvas id="manhoursChart" width="520" height="220"></canvas>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th class="hide"></th>
+                                <th>Sub Assy</th>
+                                <th>Pre Assy TOWER</th>
+                                <th>Main Assy</th>
+                                <th>Sub Assy</th>
+                                <th>Pre Assy DISPENSER</th>
+                                <th>Main Assy</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Rows will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <div class="table-container">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th class="hide"></th>
-                        <th>Sub Assy</th>
-                        <th>Pre Assy TOWER</th>
-                        <th>Main Assy</th>
-                        <th>Sub Assy</th>
-                        <th>Pre Assy DISPENSER</th>
-                        <th>Main Assy</th>
-                        <th>TOTAL</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    <!-- Rows will be inserted by JavaScript -->
-                </tbody>
-            </table>
-        </div>
-    </div>
+        
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.js"></script>
     <script src="AvailableManhours.js"></script>
 </body>
