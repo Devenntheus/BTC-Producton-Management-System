@@ -22,7 +22,8 @@
     </header>
     <div class="main-container">
         <div class="right-container">
-            <div class="container-history">
+            <div class="container-history" onclick="showModal('historyModal')">
+                <div class="overlay"></div>
                 <div class="card-history">
                     <iframe src="AlertHistory.html" title="Alert History Details"></iframe>
                 </div>
@@ -81,15 +82,24 @@
     </div>
 
     <!-- Modal Structure -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('historyModal')">&times;</span>
+            <h2 class="modal-title">Alert History</h2>
+            <iframe src="AlertHistory.html" title="Alert History Details"></iframe>
+        </div>
+    </div>
     <div id="performanceModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('performanceModal')">&times;</span>
+            <h2 class="modal-title">Performance Chart</h2>
             <iframe src="PerformanceChart.html" title="Performance Details"></iframe>
         </div>
     </div>
     <div id="availabilityModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('availabilityModal')">&times;</span>
+            <h2 class="modal-title">Availability Chart</h2>
             <iframe src="AvailabilityChart1.html" title="Availability 1 Details"></iframe>
             <iframe src="AvailabilityChart2.html" title="Availability 2 Details"></iframe>
         </div>
@@ -97,6 +107,7 @@
     <div id="qualityModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('qualityModal')">&times;</span>
+            <h2 class="modal-title">Quality Chart</h2>
             <iframe src="QualityChart1.html" title="Quality 1 Details"></iframe>
             <iframe src="QualityChart2.html" title="Quality 2 Details"></iframe>
         </div>
