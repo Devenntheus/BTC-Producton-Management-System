@@ -20,6 +20,7 @@ const ctx = document.getElementById('barChart').getContext('2d');
             options: {
                 indexAxis: 'y', // Make the bars horizontal
                 responsive: true,
+                maintainAspectRatio: false, // Allows the chart to fill the iframe's height and width
                 plugins: {
                     legend: {
                         position: 'bottom',

@@ -91,7 +91,7 @@ body {
     overflow: hidden;
 }
 
-iframe {
+.left-container iframe {
     width: 100%;
     height: 100%;
     border: none;
@@ -188,6 +188,130 @@ iframe {
     border: 1px solid grey; /* Grey borderline around iframe */
     border-radius: 5px; /* Optional: smooth out the iframe borders */
 }
+
+/* Modal styles */
+.modal-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Space between title and content */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Centered vertically and horizontally */
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 5px; /* Rounded corners */
+    width: 80%; /* Could be more or less, depending on screen size */
+    height: 80%; /* Adjust the height as needed */
+    max-width: auto; /* Optionally set a max width */
+    max-height: 80%; /* Optionally set a max height */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+.close {
+    color: #aaa;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+}
+
+.modal-content .chart-container {
+    flex: 1; /* Allow the chart container to grow and shrink */
+    display: flex;
+    flex-direction: column; /* Stack iframes vertically */
+    justify-content: space-around; /* Distribute space evenly */
+}
+
+.modal-content iframe {
+    width: 100%;
+    flex: 1; /* Allow iframes to grow and shrink equally */
+    border: none; /* Remove default iframe border */
+    margin-bottom: 10px; /* Optional: space between charts */
+}
+
+.center-build-status, .right-attendance, .right-bottom-manhours {
+    position: relative; /* Set relative positioning for the parent */
+}
+
+.maximize-icon {
+    position: absolute; /* Keep absolute positioning */
+    top: 10px; /* Adjust as needed */
+    right: 15px; /* Adjust as needed */
+    cursor: pointer;
+    width: 17px; /* Set the width */
+    height: 17px; /* Set the height */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+.maximize-icon::after {
+    content: attr(title);
+    position: absolute;
+    top: -5px;
+    left: 105%;
+    background-color: black;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+}
+
+.maximize-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Resetting the default tooltip */
+.maximize-icon[title]:hover::after {
+    display: none;
+}
+
+#buildStatusModal .modal-content, #attendanceRateModal .modal-content, #availableManhoursModal .modal-content {
+    display: flex;
+    justify-content: center; /* Horizontally center the iframe */
+    align-items: center; /* Vertically center the iframe */
+    height: 100%; /* Ensure the modal content takes up the full height */
+}
+
+#attendanceRateModal .modal-content iframe {
+    margin-right: 220px;
+}
+
+#availableManhoursModal .modal-content iframe {
+    margin-right: 160px;
+}
+
+#buildStatusModal .modal-content iframe {
+    height: 85%; /* Adjust iframe height */
+    width: 85%; /* Adjust iframe width */
+    border: none; /* Remove any default borders */
+}
+
+
 
 
 /* Responsive layout for smaller screens */

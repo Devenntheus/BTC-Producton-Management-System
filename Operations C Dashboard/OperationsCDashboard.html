@@ -59,17 +59,47 @@
         <div class="center-build-status">
             <h2 class="section-title">BUILD STATUS</h2>
             <iframe src="BuildStatusChart.html" title="Build Status"></iframe>
+            <img src="../Images/maximize.png" class="maximize-icon" onclick="showModal('buildStatusModal')" alt="Maximize" title="Zoom Build Status">
         </div>
+
+
 
         <!-- Attendance Rate Section (right-center) -->
         <div class="right-attendance">
             <h2 class="section-title">ATTENDANCE</h2>
             <iframe src="AttendanceRate.html" title="Attendance Rate"></iframe>
+            <img src="../Images/maximize.png" class="maximize-icon" onclick="showModal('attendanceRateModal')" alt="Maximize" title="Zoom Attendance">
         </div>
 
         <!-- Available Manhours Section (bottom-right) -->
         <div class="right-bottom-manhours">
             <h2 class="section-title">AVAILABLE MANHOURS</h2>
+            <iframe src="AvailableManhours.html" title="Available Manhours"></iframe>
+            <img src="../Images/maximize.png" class="maximize-icon" onclick="showModal('availableManhoursModal')" alt="Maximize" title="Zoom Available Manhours">
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="buildStatusModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('buildStatusModal')">&times;</span>
+            <h2 class="modal-title">Build Status</h2>
+            <iframe src="BuildStatusChart.html" title="Build Status"></iframe>
+        </div>
+    </div>
+
+    <div id="attendanceRateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('attendanceRateModal')">&times;</span>
+            <h2 class="modal-title">Attendance</h2>
+            <iframe src="AttendanceRate.html" title="Attendance"></iframe>
+        </div>
+    </div>
+
+    <div id="availableManhoursModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('availableManhoursModal')">&times;</span>
+            <h2 class="modal-title">Available Manhours</h2>
             <iframe src="AvailableManhours.html" title="Available Manhours"></iframe>
         </div>
     </div>
@@ -105,6 +135,28 @@
     
         setInterval(updateDateTime, 1000);
         updateDateTime();
+
+        // Function to show modal
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        }
+
+        // Function to close modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = 'none';
+                }
+            }
+        }
     </script>
 </body>
 </html>
