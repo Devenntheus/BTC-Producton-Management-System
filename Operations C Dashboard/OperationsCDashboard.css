@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    overflow: hidden;
 }
 
 header {
@@ -290,7 +289,7 @@ body {
     display: none;
 }
 
-#buildStatusModal .modal-content, #attendanceRateModal .modal-content, #availableManhoursModal .modal-content {
+#buildStatusModal .modal-content{
     display: flex;
     justify-content: center; /* Horizontally center the iframe */
     align-items: center; /* Vertically center the iframe */
@@ -298,11 +297,13 @@ body {
 }
 
 #attendanceRateModal .modal-content iframe {
-    margin-right: 220px;
+    /*margin-right: 220px;*/
+    height: 100%; /* Ensure the modal content takes up the full height */
 }
 
 #availableManhoursModal .modal-content iframe {
-    margin-right: 160px;
+    /*margin-right: 160px;*/
+    height: 97%; /* Ensure the modal content takes up the full height */
 }
 
 #buildStatusModal .modal-content iframe {
@@ -315,40 +316,118 @@ body {
 
 
 /* Responsive layout for smaller screens */
-@media screen and (max-width: 1200px) {
-    .dashboard-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 1fr);
-        gap: 10px;
-        height: auto;
+@media screen and (max-width: 1300px) {
+    .dashboard-container{
+        height: 100vh;
+        grid-template-columns: 2.2fr 3fr 3fr;
+        grid-template-rows: 0.1fr 1.5fr 1.5fr;
     }
 
-    .left-container,
-    .center-build-status,
-    .right-attendance,
-    .right-bottom-manhours {
-        grid-column: 1 / 2;
-        grid-row: auto;
-        height: auto;
+    
+    
+    .left-container {
+        height: 100%;
+        width: 100%;
     }
-
+    
+    .left-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    
+    /* Cards container (center top) */
     .cards-container {
-        grid-column: 1 / 2;
-        grid-template-columns: repeat(3, 1fr); /* Adjust the card columns for better visibility */
+        grid-column: 2 / 4;
+        grid-row: 1;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
     }
-
+    
     .card {
-        padding: 15px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        color: black;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
-    .card h3 {
-        font-size: 1rem;
+    
+    .card h3, .card p1 {
+        font-size: 0.4rem;
+        margin-bottom: 10px;
+        font-weight: bold;
     }
-
+    
     .card p {
-        font-size: 1.4rem;
+        font-size: 1rem;
+        font-weight: bold;
     }
+    
+    .section-title {
+        text-align: left;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-top: -10px; /* Space between the title and iframe */
+        margin-bottom: 5px;
+        color: #141B2D;
+    }
+    
+    /* Build Status section (center) */
+    .center-build-status {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        padding: 20px; /* Add padding for spacing around content */
+    }
+    
+    .center-build-status iframe {
+        width: 100%;
+        height: 98%;
+        border: 1px solid grey; /* Grey borderline around iframe */
+        border-radius: 5px; /* Optional: smooth out the iframe borders */
+    }
+    
+    /* Attendance Rate section (right-center) */
+    .right-attendance {
+        grid-column: 3 / 4;
+        grid-row: 2;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        padding: 20px; /* Add padding for spacing around content */
+    }
+    
+    .right-attendance iframe {
+        width: 100%;
+        height: 97%;
+        border: 1px solid grey; /* Grey borderline around iframe */
+        border-radius: 5px; /* Optional: smooth out the iframe borders */
+    }
+    
+    /* Available Manhours section (bottom-right) */
+    .right-bottom-manhours {
+        grid-column: 3 / 4;
+        grid-row: 3;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        padding: 20px; /* Add padding for spacing around content */
+    }
+    
+    .right-bottom-manhours iframe {
+        width: 100%;
+        height: 97%;
+        border: 1px solid grey; /* Grey borderline around iframe */
+        border-radius: 5px; /* Optional: smooth out the iframe borders */
+    }
+    
 }
 
 @media screen and (max-width: 768px) {

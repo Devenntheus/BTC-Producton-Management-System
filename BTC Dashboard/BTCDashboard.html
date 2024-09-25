@@ -5,20 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTC Dashboard</title>
     <link rel="stylesheet" href="BTCDashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 </head>
 <body>
+    <header class="header">
+    
+        <div class="logo">
+            <a href="">
+                <img src="../Images/btcpower-logo-green.png" alt="Logo">
+            </a>
+            <div class="text">
+                <h1>|</h1>
+                <h2 style="margin-right: 40px;">Operations C</h2>
+                <h2 style="margin-right: 40px;">Motor Assembly</h2>
+                <h2>Report</h2>
+            </div>
+        </div>
+        <div class="date-time" id="dateTime"></div>
+    </header>
     <div class="dashboard-container">
         <!-- Operations C Dashboard (Top Part) -->
         <div class="operations-section">
-            <!-- Paste the content of OperationsCDashboard.html here -->
-            <iframe src="../Operations C Dashboard/OperationsCDashboard.html" frameborder="0" class="embedded-dashboard"></iframe>
+            <iframe src="../Operations C Dashboard/OperationsCDashboard.html" frameborder="0" class="embedded-dashboard operations-dashboard"></iframe>
         </div>
 
         <!-- Motor Assembly Dashboard (Bottom Part) -->
         <div class="assembly-section">
-            <!-- Paste the content of MotorAssemblyDashboard.html here -->
-            <iframe src="../Motor Assembly Page/Dashboard.html" frameborder="0" class="embedded-dashboard"></iframe>
+            <iframe src="../Motor Assembly Page/Dashboard.html" frameborder="0" class="embedded-dashboard assembly-dashboard"></iframe>
         </div>
     </div>
+
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('dateTime');
+            const now = new Date();
+        
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+        
+            const dayOfWeek = days[now.getDay()];
+            const month = months[now.getMonth()];
+            const day = String(now.getDate()).padStart(2, '0');
+            const year = now.getFullYear();
+            
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;  // Convert to 12-hour format, with 12 for midnight/noon
+            
+            // Format the time and date as requested
+            const formattedTime = `<span class="time">${hours}:${minutes} ${ampm}</span>`;
+            const formattedDate = `<span class="date">${dayOfWeek}, ${month} ${day} ${year}</span>`;
+            
+            // Combine both time and date
+            dateTimeElement.innerHTML = `${formattedTime}<br>${formattedDate}`;
+        }
+    
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Function to show modal
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        }
+
+        // Function to close modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
 </body>
 </html>

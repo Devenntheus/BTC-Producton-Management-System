@@ -326,3 +326,11 @@ h1, h2 {
 .maximize-icon[title]:hover::after {
     display: none;
 }
+
+/* Responsive layout for smaller screens */
+@media screen and (max-width: 1300px) {
+
+    .main-container {
+        height: 100vh;
+    }
+}

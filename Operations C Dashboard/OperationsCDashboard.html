@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="operations-header">
         <div class="logo">
             <a href="">
                 <img src="../Images/btcpower-logo-green.png" alt="Logo">
@@ -105,6 +105,17 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if the page is running inside an iframe
+            if (window.self !== window.top) {
+            // Hide the header if inside an iframe
+            const header = document.getElementById('operations-header');
+            if (header) {
+                header.style.display = 'none';
+            }
+            }
+        });
+
         function updateDateTime() {
             const dateTimeElement = document.getElementById('dateTime');
             const now = new Date();
