@@ -71,35 +71,74 @@ header {
 }
 
 .dashboard-container {
+    margin-top: 180px;
     display: grid;
-    grid-template-rows: 45% 45%; /* Adjust height for top and bottom parts */
+    grid-template-columns: 40% 40%; /* Adjust height for top and bottom parts */
     width: 100vw;
     height: 100vh;
-    gap: -10px; /* Optional, adds some space between the two iframes */
+    gap: 180px;
 }
 
 .operations-section, .assembly-section {
-    display: flex;
+    width: 95vh; /* 100% - 65% */
+    height: 100%; /* Adjust based on the desired height */
+    overflow: hidden;
+    position: relative;
     justify-content: center;
     align-items: center;
 }
 
-.embedded-dashboard {
+.operations-section iframe, .assembly-section iframe {
+    width: 200%; /* Fit the iframe container */
+    height: 100%; /* To accommodate for scaling */
+    border: none;
+    transform: scale(0.5); /* Scale to 50% */
+    transform-origin: top right; /* Anchor point for scaling */
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire iframe */
+    height: 46%; /* Cover the entire iframe */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 10; /* Ensure it sits above the iframe */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: white; /* Text color */
+    font-size: 20px; /* Text size */
+    font-weight: bold; /* Text weight */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.operations-section:hover .overlay,
+.assembly-section:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+/*.embedded-dashboard {
     border: none;
     max-width: 100%;
     max-height: 100%;
 }
 
-/* Specific adjustments for Operations C Dashboard */
+ Specific adjustments for Operations C Dashboard 
 .operations-dashboard {
-    width: 65%;  /* Adjusted width to fit comfortably */
-    height: 100%; /* Adjusted height to fit comfortably */
-    aspect-ratio: 16 / 9; /* Maintain aspect ratio to avoid distortion */
+    width: 65%;  
+    height: 100%; 
+    aspect-ratio: 16 / 9; 
 }
 
-/* Specific adjustments for Motor Assembly Dashboard */
+
 .assembly-dashboard {
     width: 65%;
     height: 100%;
-    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
-}
+    aspect-ratio: 16 / 9; 
+}*/
