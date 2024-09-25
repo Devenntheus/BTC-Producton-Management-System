@@ -47,20 +47,20 @@ header {
 
 .header .date-time {
     margin-top: -5px;
-    font-size: 10px;  /* Default font size for the date */
+    font-size: 10px; 
     font-weight: 500;
     text-align: right; /* Justify text to the left */
 }
 
 .header .time {
-    font-size: 20px;  /* Increase font size for the time */
-    font-weight: bold; /* Make time bold */
+    font-size: 20px;
+    font-weight: bold;
     color: #6DBF4C;
 }
 
 .header .date {
-    font-size: 12px;  /* Keep the date smaller */
-    font-weight: normal; /* Normal weight for the date */
+    font-size: 12px;
+    font-weight: normal;
 }
 
 body {
@@ -69,13 +69,8 @@ body {
 }
 
 .main-container {
-    display: flex;
-    flex-direction: row-reverse; /* Reversed the order to place right-container first */
-    justify-content: flex-start;
-}
-
-.left-container, .right-container {
-    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 }
 
 .container {
@@ -92,20 +87,14 @@ h1, h2 {
 
 /* Card styles */
 .card {
-    position: relative; /* Added for positioning the icon */
-    width: 1200px;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid white; 
+    padding: 20px;
     border-radius: 5px;
+    border: 1px solid white; 
     background-color: white;
     overflow: hidden; /* Hide any overflow */
 }
 
-.card-history .maximize-icon,
 .card .maximize-icon {
     position: absolute;
     top: 5px;
@@ -115,53 +104,51 @@ h1, h2 {
     cursor: pointer;
 }
 
+.card-history .maximize-icon {
+    position: absolute;
+    top: 5px; /* Adjust as needed */
+    right: 5px; /* Adjust as needed */
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
 .card .info {
-    flex: 1;
-    margin-right: 20px; /* Space between text and iframe */
-    margin-left: 20px;
+    margin: 10px;
 }
 
 .performance-percentage,
 .quality-percentage,
 .availability-percentage {
-    margin-top: 40px;
-    font-size: 35px; /* Set font size */
-    font-weight: bold; /* Optional: make the font bold */
-    color: #000000; /* Optional: set the text color */
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .card iframe {
     width: 100%; /* Adjust width to fit the card */
-    height: 200px; /* Adjust height as needed */
     border: none;
 }
 
 .container-history {
     font-family: 'Poppins', sans-serif;
     background-color: transparent;
-    position: relative;
     margin-right: 20px;
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .card-history {
-    display: flex;
-    justify-content: center; /* Center the iframe */
-    align-items: center; /* Center the iframe */
-    text-align: center;
-    border: 1px solid white; 
+    position: relative;
     border-radius: 5px;
+    border: 1px solid white; 
     background-color: white;
     overflow: hidden; /* Hide any overflow */
-    height: 100%; /* Make sure it takes full height of the container */
-    width: 100%; /* Make sure it takes full width of the container */
 }
 
 .card-history iframe {
-    width: 100%; /* Make the iframe take full width of the card */
-    height: 835px; /* Make the iframe take full height of the card */
+    width: 100%;
+    height: 750px;
     border: none; /* Remove default iframe border */
+    display: block;
 }
 
 /* New styles for operations-today card */
@@ -327,10 +314,65 @@ h1, h2 {
     display: none;
 }
 
-/* Responsive layout for smaller screens */
-@media screen and (max-width: 1300px) {
-
+@media (max-width: 768px) {
     .main-container {
-        height: 100vh;
+        grid-template-columns: 1fr; /* Stack columns */
+    }
+
+    .header .logo img {
+        width: 100px; /* Adjust logo size */
+    }
+
+    .header .date-time {
+        font-size: 8px; /* Smaller font size */
+    }
+
+    .card {
+        padding: 10px; /* Reduced padding */
+    }
+
+    .operations-today {
+        flex-direction: column; /* Stack boxes vertically */
+    }
+
+    .operations-today .box {
+        border-right: none; /* Remove right border */
+        border-bottom: 1px solid #ccc; /* Add bottom border */
+    }
+
+    .operations-today .box:last-child {
+        border-bottom: none; /* Remove last bottom border */
+    }
+
+    .card iframe {
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .modal-content {
+        width: 90%; /* Use more width for modals */
+        height: auto; /* Allow height to adjust */
+    }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .container-history {
+        margin-left: 20px; /* Reduced left margin for smaller screens */
+        margin-right: 20px; /* Optionally reduce right margin as well */
+    }
+
+    .card-history {
+        height: auto; /* Adjust height for smaller screens if needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .container-history {
+        margin-left: 20px; /* Further reduced left margin for very small screens */
+        margin-right: 20px; /* Further reduced right margin for very small screens */
+    }
+
+    .card-history {
+        height: auto; /* Adjust height for smaller screens */
     }
 }
