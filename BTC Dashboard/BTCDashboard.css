@@ -71,16 +71,18 @@ header {
 }
 
 .dashboard-container {
-    margin-top: 180px;
     display: grid;
-    grid-template-columns: 40% 40%; /* Adjust height for top and bottom parts */
-    width: 100vw;
-    height: 100vh;
-    gap: 180px;
+    grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
+    grid-template-rows: 1fr; /* 1 row */
+    justify-items: center; /* Center items in their grid cells */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Set height to full viewport height */
+    margin-top: 180px;
+    gap: 20px; /* Adjust the gap size as needed */
 }
 
 .operations-section, .assembly-section {
-    width: 95vh; /* 100% - 65% */
+    width: 100%; /* Set to 100% */
     height: 100%; /* Adjust based on the desired height */
     overflow: hidden;
     position: relative;
@@ -97,7 +99,6 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-
 }
 
 .overlay {

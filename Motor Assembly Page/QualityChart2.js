@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
             y: {
                 type: 'linear',
