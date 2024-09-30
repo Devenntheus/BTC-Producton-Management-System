@@ -9,16 +9,21 @@
 </head>
 <body>
     <header class="header">
-    
         <div class="logo">
-            <a href="">
+            <a href="../BTC Dashboard/BTCDashboard.html">
                 <img src="../Images/btcpower-logo-green.png" alt="Logo">
             </a>
             <div class="text">
                 <h1>|</h1>
-                <h2 style="margin-right: 40px;">Operations C</h2>
-                <h2 style="margin-right: 40px;">Motor Assembly</h2>
-                <h2>Report</h2>
+                <h2 style="margin-right: 40px;">
+                    <a class="custom-link" href="../Operations C Dashboard/OperationsCDashboard.html">Operations C</a>
+                </h2>
+                <h2 style="margin-right: 40px;">
+                    <a class="custom-link" href="../Motor Assembly Page/Dashboard.html">Motor Assembly</a>
+                </h2>
+                <h2>
+                    <a class="custom-link" href="../Generate Report/GenerateReport.html">Report</a>
+                </h2>
             </div>
         </div>
         <div class="date-time" id="dateTime"></div>
@@ -26,14 +31,18 @@
     <div class="dashboard-container">
         <!-- Operations C Dashboard (Top Part) -->
         <div class="operations-section">
-            <iframe src="../Operations C Dashboard/OperationsCDashboard.html" frameborder="0" class="embedded-dashboard operations-dashboard"></iframe>
-            <div class="overlay"></div> <!-- Overlay for the iframe -->
+            <a href="../Operations C Dashboard/OperationsCDashboard.html">
+                <iframe src="../Operations C Dashboard/OperationsCDashboard.html" frameborder="0" class="embedded-dashboard operations-dashboard"></iframe>
+                <div class="overlay"></div> <!-- Overlay for the iframe -->
+            </a>
         </div>
 
         <!-- Motor Assembly Dashboard (Bottom Part) -->
         <div class="assembly-section">
-            <iframe src="../Motor Assembly Page/Dashboard.html" frameborder="0" class="embedded-dashboard assembly-dashboard"></iframe>
-            <div class="overlay"></div> <!-- Overlay for the iframe -->
+            <a href="../Motor Assembly Page/Dashboard.html">
+                <iframe src="../Motor Assembly Page/Dashboard.html" frameborder="0" class="embedded-dashboard assembly-dashboard"></iframe>
+                <div class="overlay"></div> <!-- Overlay for the iframe -->
+            </a>
         </div>
     </div>
 

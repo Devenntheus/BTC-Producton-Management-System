@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Report</title>
     <link rel="stylesheet" href="GenerateReport.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <a href="../Generate Report/GenerateReport.html">
+            <a href="../BTC Dashboard/BTCDashboard.html">
                 <img src="../Images/btcpower-logo-green.png" alt="Logo">
             </a>
             <div class="text">
                 <h1>|</h1>
-                <h2>Reports</h2>
+                <h2 style="margin-right: 40px;">
+                    <a class="custom-link" href="../Operations C Dashboard/OperationsCDashboard.html">Operations C</a>
+                </h2>
+                <h2 style="margin-right: 40px;">
+                    <a class="custom-link" href="../Motor Assembly Page/Dashboard.html">Motor Assembly</a>
+                </h2>
+                <h2>
+                    <a class="custom-link" href="../Generate Report/GenerateReport.html">Report</a>
+                </h2>
             </div>
         </div>
         <div class="date-time" id="dateTime"></div>
@@ -54,5 +63,38 @@
         </form>
     </div>
     <script src="GenerateReport.js"></script>
+
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('dateTime');
+            const now = new Date();
+        
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+        
+            const dayOfWeek = days[now.getDay()];
+            const month = months[now.getMonth()];
+            const day = String(now.getDate()).padStart(2, '0');
+            const year = now.getFullYear();
+            
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;  // Convert to 12-hour format, with 12 for midnight/noon
+            
+            // Format the time and date as requested
+            const formattedTime = `<span class="time">${hours}:${minutes} ${ampm}</span>`;
+            const formattedDate = `<span class="date">${dayOfWeek}, ${month} ${day} ${year}</span>`;
+            
+            // Combine both time and date
+            dateTimeElement.innerHTML = `${formattedTime}<br>${formattedDate}`;
+        }
+    
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
 </body>
 </html>

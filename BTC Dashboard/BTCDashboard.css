@@ -54,20 +54,35 @@ header {
 
 .header .date-time {
     margin-top: -5px;
-    font-size: 10px;  /* Default font size for the date */
+    font-size: 10px; 
     font-weight: 500;
     text-align: right; /* Justify text to the left */
 }
 
 .header .time {
-    font-size: 20px;  /* Increase font size for the time */
-    font-weight: bold; /* Make time bold */
+    font-size: 20px;
+    font-weight: bold;
     color: #6DBF4C;
 }
 
 .header .date {
-    font-size: 12px;  /* Keep the date smaller */
-    font-weight: normal; /* Normal weight for the date */
+    font-size: 12px;
+    font-weight: normal;
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.custom-link {
+    color: gray;  /* Set hyperlink color to gray */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.custom-link:hover {
+    color: white;  /* Change hyperlink color to white when hovered */
 }
 
 .dashboard-container {

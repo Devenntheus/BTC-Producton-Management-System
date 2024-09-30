@@ -72,6 +72,16 @@ h1, h2 {
     font-weight: 500;
 }
 
+.custom-link {
+    color: gray;  /* Set hyperlink color to gray */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.custom-link:hover {
+    color: white;  /* Change hyperlink color to white when hovered */
+}
+
 .main-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
