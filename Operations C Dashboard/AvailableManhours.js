@@ -1,3 +1,8 @@
+// Show loading animation
+const loading = document.getElementById('loading');
+const table = document.getElementById('manhoursTable');
+loading.style.display = 'block'; // Show the loading spinner
+
 // Fetch manhours data from the server
 fetch('http://localhost:3001/api/manhours')
     .then(response => response.json())
@@ -83,18 +88,8 @@ fetch('http://localhost:3001/api/manhours')
         const rowPresent = document.createElement('tr');
 
         // Add header cells with color boxes
-        rowHCI.innerHTML = `
-            <th class="legend-left">
-                <div class="legend-box legend-hci"></div>
-                HCI
-            </th>
-        `;
-        rowPresent.innerHTML = `
-            <th class="legend-left">
-                <div class="legend-box legend-present"></div>
-                Present
-            </th>
-        `;
+        rowHCI.innerHTML = `<th class="legend-left"><div class="legend-box legend-hci"></div>HCI</th>`;
+        rowPresent.innerHTML = `<th class="legend-left"><div class="legend-box legend-present"></div>Present</th>`;
 
         // Add cells for HCI and Present values
         labels.forEach((label, index) => {
@@ -116,7 +111,12 @@ fetch('http://localhost:3001/api/manhours')
         // Append the rows to the table body
         tableBody.appendChild(rowHCI);
         tableBody.appendChild(rowPresent);
+
+        // Hide loading animation and show the table
+        loading.style.display = 'none'; // Hide loading spinner
+        table.style.display = 'table'; // Show the table
     })
     .catch(error => {
         console.error('Error fetching data:', error);
+        loading.style.display = 'none'; // Hide loading spinner in case of error
     });
