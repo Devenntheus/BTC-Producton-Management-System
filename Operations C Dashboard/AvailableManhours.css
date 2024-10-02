@@ -83,3 +83,13 @@ body {
 .legend-present {
     background-color: rgba(233, 113, 50, 1);
 }
+
+#loading {
+    font-size: 16px; /* Adjust size as needed */
+    color: #333; /* Color for the loading text */
+    position: absolute; /* Positioning it absolutely */
+    top: 50%; /* Center it vertically */
+    left: 50%; /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Offset for centering */
+    z-index: 10; /* Ensure it appears above other elements */
+}

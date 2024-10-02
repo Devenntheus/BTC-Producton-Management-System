@@ -68,4 +68,21 @@ app.get('/api/availability2', async (req, res) => {
     }
 });
 
+// Endpoint to get manhours data
+app.get('/api/manhours', async (req, res) => {
+    try {
+        // Connect to MSSQL
+        await sql.connect(dbConfig);
+
+        // Query the database
+        const result = await sql.query('SELECT Label, AvailableManhours, PresentManhours FROM AvailableManhours');
+
+        // Send the result as a JSON response
+        res.json(result.recordset);
+    } catch (err) {
+        console.error('Error fetching data:', err);
+        res.status(500).send('Error retrieving data');
+    }
+});
+
 app.listen(3001, () => console.log('Server running on http://localhost:3001'));
