@@ -19,30 +19,52 @@ const dbConfig = {
     }
 };
 
-// Connect to the database
-sql.connect(dbConfig, (err) => {
-    if (err) {
+// Create a connection pool
+const poolPromise = new sql.ConnectionPool(dbConfig)
+    .connect()
+    .then(pool => {
+        console.log('Database connected successfully.');
+        return pool;
+    })
+    .catch(err => {
         console.error('Database connection failed:', err);
-        return;
-    }
-    console.log('Database connected successfully.');
-});
+    });
 
 // API endpoint to get alert history
 app.get('/api/alerts', async (req, res) => {
     console.log('Received request for alerts');
     try {
-        // Create a new connection for each request
-        await sql.connect(dbConfig);
-        const result = await sql.query('SELECT Severity, Time, AlertName, Issue FROM AlertHistory');
+        const pool = await poolPromise;
+        const result = await pool.request().query('SELECT Severity, Time, AlertName, Issue FROM AlertHistory');
         console.log('Query successful:', result.recordset);
         res.json(result.recordset);
     } catch (err) {
         console.error('Error querying the database:', err);
         res.status(500).send('Server error');
-    } finally {
-        // Close the connection
-        sql.close();
+    }
+});
+
+// API endpoint to get availability chart data
+app.get('/api/availability', async (req, res) => {
+    try {
+        const pool = await poolPromise;
+        const result = await pool.request().query('SELECT label, data, category FROM AvailabilityChart1');
+        res.json(result.recordset);
+    } catch (err) {
+        console.error('Error querying the database:', err);
+        res.status(500).send('Server error');
+    }
+});
+
+// API endpoint to get availability chart 2 data
+app.get('/api/availability2', async (req, res) => {
+    try {
+        const pool = await poolPromise;
+        const result = await pool.request().query('SELECT label, duration_sum, cumulative_percentage FROM AvailabilityChart2');
+        res.json(result.recordset);
+    } catch (err) {
+        console.error('Error querying the database:', err);
+        res.status(500).send('Server error');
     }
 });
 

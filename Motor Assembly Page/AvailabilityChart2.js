@@ -1,14 +1,33 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     const ctx = document.createElement('canvas');
     document.body.appendChild(ctx);
 
+    // Fetch the data from the API
+    const fetchData = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/api/availability2');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching the availability chart data:', error);
+            return [];
+        }
+    };
+
+    const rawData = await fetchData();
+    
+    // Process the data
+    const labels = rawData.map(item => item.label);
+    const durationSumData = rawData.map(item => item.duration_sum);
+    const cumulativePercentageData = rawData.map(item => item.cumulative_percentage);
+
     const data = {
-        labels: ['Assembly', 'Other', 'Equipment', 'Part Qual...', 'No Materi...'],
+        labels: labels,
         datasets: [
             {
                 type: 'line',
                 label: 'Cumulative Percentage',
-                data: [50, 88, 97, 99, 100], // Example cumulative percentages, replace with your actual data
+                data: cumulativePercentageData,
                 backgroundColor: 'rgba(255, 159, 64, 0.2)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 2,
@@ -22,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             {
                 type: 'bar',
                 label: 'Duration - Sum',
-                data: [1500, 1300, 200, 100, 50], // Example data, replace with your actual data
+                data: durationSumData,
                 backgroundColor: 'rgba(54, 162, 235, 0.6)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1,
