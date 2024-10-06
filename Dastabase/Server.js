@@ -19,6 +19,18 @@ const dbConfig = {
     }
 };
 
+// const dbConfig = {
+//     server: 'VENNZLAPTOP',
+//     database: 'BTCPower',
+//     user: 'Umbraven',
+//     password: 'Crow07k#2117',
+//     options: {
+//         encrypt: true,
+//         trustServerCertificate: true,
+//         enableArithAbort: true
+//     }
+// };
+
 // Create a connection pool
 const poolPromise = new sql.ConnectionPool(dbConfig)
     .connect()

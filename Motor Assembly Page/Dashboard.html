@@ -92,10 +92,24 @@
                     <img src="../Images/maximize.png" class="maximize-icon" onclick="showModal('historyModal')" alt="Maximize" title="Zoom">
                 </div>
             </div>
+
+            <div class="container-serial">
+                <div class="card-serial">
+                    <iframe src="SerialNumberTracking.html" title="Serial History Details"></iframe>
+                    <img src="../Images/maximize.png" class="maximize-icon" onclick="showModal('serialModal')" alt="Maximize" title="Zoom">
+                </div>
+            </div>      
         </div>
     </div>
 
     <!-- Modal Structure -->
+    <div id="serialModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('serialModal')">&times;</span>
+            <h2 class="modal-title">Serial History</h2>
+            <iframe src="SerialNumberTracking.html" title="Serial History Details"></iframe>
+        </div>
+    </div>
     <div id="historyModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('historyModal')">&times;</span>
